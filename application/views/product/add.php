@@ -61,18 +61,7 @@
 							<input type="text" name="enabled" value="<?php echo $this->input->post('enabled'); ?>" class="form-control" id="enabled" />
 						</div>
 					</div>
-					<div class="col-md-6">
-						<label for="date_created" class="control-label">Date Created</label>
-						<div class="form-group">
-							<input type="text" name="date_created" value="<?php echo $this->input->post('date_created'); ?>" class="has-datetimepicker form-control" id="date_created" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="date_update" class="control-label">Date Update</label>
-						<div class="form-group">
-							<input type="text" name="date_update" value="<?php echo $this->input->post('date_update'); ?>" class="form-control" id="date_update" />
-						</div>
-					</div>
+					
 					<div class="col-md-6">
 						<label for="description" class="control-label">Description</label>
 						<div class="form-group">

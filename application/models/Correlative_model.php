@@ -14,7 +14,7 @@ class Correlative_model extends CI_Model
     /*
      * Get correlative by user_created
      */
-    function get_correlative($user_created)
+    function get_correlative($id)
     {
         return $this->db->get_where('correlatives',array('id'=>$id))->row_array();
     }
@@ -40,7 +40,7 @@ class Correlative_model extends CI_Model
     /*
      * function to update correlative
      */
-    function update_correlative($user_created,$params)
+    function update_correlative($id,$params)
     {
         $this->db->where('id',$id);
         return $this->db->update('correlatives',$params);

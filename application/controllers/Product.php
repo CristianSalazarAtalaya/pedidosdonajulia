@@ -42,8 +42,8 @@ class Product extends CI_Controller{
 				'discount' => $this->input->post('discount'),
 				'stock' => $this->input->post('stock'),
 				'enabled' => $this->input->post('enabled'),
-				'date_created' => $this->input->post('date_created'),
-				'date_update' => $this->input->post('date_update'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_update' => $this->input->post('date_update'),
 				'description' => $this->input->post('description'),
             );
             
@@ -85,8 +85,8 @@ class Product extends CI_Controller{
 					'discount' => $this->input->post('discount'),
 					'stock' => $this->input->post('stock'),
 					'enabled' => $this->input->post('enabled'),
-					'date_created' => $this->input->post('date_created'),
-					'date_update' => $this->input->post('date_update'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_update' => $this->input->post('date_update'),
 					'description' => $this->input->post('description'),
                 );
 

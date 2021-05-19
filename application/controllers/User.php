@@ -35,8 +35,8 @@ class User extends CI_Controller{
 				'username' => $this->input->post('username'),
 				'email' => $this->input->post('email'),
 				'type' => $this->input->post('type'),
-				'date_created' => $this->input->post('date_created'),
-				'date_updated' => $this->input->post('date_updated'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_updated' => $this->input->post('date_updated'),
             );
             
             $user_id = $this->User_model->add_user($params);
@@ -68,8 +68,8 @@ class User extends CI_Controller{
 					'username' => $this->input->post('username'),
 					'email' => $this->input->post('email'),
 					'type' => $this->input->post('type'),
-					'date_created' => $this->input->post('date_created'),
-					'date_updated' => $this->input->post('date_updated'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_updated' => $this->input->post('date_updated'),
                 );
 
                 $this->User_model->update_user($id,$params);            

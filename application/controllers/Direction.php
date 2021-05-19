@@ -36,8 +36,8 @@ class Direction extends CI_Controller{
 				'district' => $this->input->post('district'),
 				'direction' => $this->input->post('direction'),
 				'reference_dir' => $this->input->post('reference_dir'),
-				'date_created' => $this->input->post('date_created'),
-				'date_updated' => $this->input->post('date_updated'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_updated' => $this->input->post('date_updated'),
             );
             
             $direction_id = $this->Direction_model->add_direction($params);
@@ -72,8 +72,8 @@ class Direction extends CI_Controller{
 					'district' => $this->input->post('district'),
 					'direction' => $this->input->post('direction'),
 					'reference_dir' => $this->input->post('reference_dir'),
-					'date_created' => $this->input->post('date_created'),
-					'date_updated' => $this->input->post('date_updated'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_updated' => $this->input->post('date_updated'),
                 );
 
                 $this->Direction_model->update_direction($id,$params);            

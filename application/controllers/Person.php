@@ -46,8 +46,8 @@ class Person extends CI_Controller{
 				'sex' => $this->input->post('sex'),
 				'dni' => $this->input->post('dni'),
 				'ruc' => $this->input->post('ruc'),
-				'date_created' => $this->input->post('date_created'),
-				'date_updated' => $this->input->post('date_updated'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_updated' => $this->input->post('date_updated'),
             );
             
             $person_id = $this->Person_model->add_person($params);
@@ -93,8 +93,8 @@ class Person extends CI_Controller{
 					'sex' => $this->input->post('sex'),
 					'dni' => $this->input->post('dni'),
 					'ruc' => $this->input->post('ruc'),
-					'date_created' => $this->input->post('date_created'),
-					'date_updated' => $this->input->post('date_updated'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_updated' => $this->input->post('date_updated'),
                 );
 
                 $this->Person_model->update_person($id,$params);            

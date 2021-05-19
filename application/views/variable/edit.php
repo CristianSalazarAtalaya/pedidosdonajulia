@@ -41,18 +41,7 @@
 							<input type="text" name="value" value="<?php echo ($this->input->post('value') ? $this->input->post('value') : $variable['value']); ?>" class="form-control" id="value" />
 						</div>
 					</div>
-					<div class="col-md-6">
-						<label for="date_created" class="control-label">Date Created</label>
-						<div class="form-group">
-							<input type="text" name="date_created" value="<?php echo ($this->input->post('date_created') ? $this->input->post('date_created') : $variable['date_created']); ?>" class="has-datetimepicker form-control" id="date_created" />
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="date_updated" class="control-label">Date Updated</label>
-						<div class="form-group">
-							<input type="text" name="date_updated" value="<?php echo ($this->input->post('date_updated') ? $this->input->post('date_updated') : $variable['date_updated']); ?>" class="form-control" id="date_updated" />
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="box-footer">

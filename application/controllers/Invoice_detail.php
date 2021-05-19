@@ -37,8 +37,8 @@ class Invoice_detail extends CI_Controller{
 				'price' => $this->input->post('price'),
 				'discount' => $this->input->post('discount'),
 				'final_price' => $this->input->post('final_price'),
-				'date_created' => $this->input->post('date_created'),
-				'date_updated' => $this->input->post('date_updated'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_updated' => $this->input->post('date_updated'),
             );
             
             $invoice_detail_id = $this->Invoice_detail_model->add_invoice_detail($params);
@@ -77,8 +77,8 @@ class Invoice_detail extends CI_Controller{
 					'price' => $this->input->post('price'),
 					'discount' => $this->input->post('discount'),
 					'final_price' => $this->input->post('final_price'),
-					'date_created' => $this->input->post('date_created'),
-					'date_updated' => $this->input->post('date_updated'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_updated' => $this->input->post('date_updated'),
                 );
 
                 $this->Invoice_detail_model->update_invoice_detail($id,$params);            

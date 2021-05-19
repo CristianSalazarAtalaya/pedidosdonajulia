@@ -34,8 +34,8 @@ class Variable extends CI_Controller{
 				'type' => $this->input->post('type'),
 				'condition_var' => $this->input->post('condition_var'),
 				'value' => $this->input->post('value'),
-				'date_created' => $this->input->post('date_created'),
-				'date_updated' => $this->input->post('date_updated'),
+				//'date_created' => $this->input->post('date_created'),
+				//'date_updated' => $this->input->post('date_updated'),
             );
             
             $variable_id = $this->Variable_model->add_variable($params);
@@ -68,8 +68,8 @@ class Variable extends CI_Controller{
 					'type' => $this->input->post('type'),
 					'condition_var' => $this->input->post('condition_var'),
 					'value' => $this->input->post('value'),
-					'date_created' => $this->input->post('date_created'),
-					'date_updated' => $this->input->post('date_updated'),
+					//'date_created' => $this->input->post('date_created'),
+					//'date_updated' => $this->input->post('date_updated'),
                 );
 
                 $this->Variable_model->update_variable($id,$params);            
