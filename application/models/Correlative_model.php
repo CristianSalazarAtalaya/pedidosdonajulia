@@ -16,7 +16,7 @@ class Correlative_model extends CI_Model
      */
     function get_correlative($user_created)
     {
-        return $this->db->get_where('correlatives',array('user_created'=>$user_created))->row_array();
+        return $this->db->get_where('correlatives',array('id'=>$id))->row_array();
     }
         
     /*
@@ -24,7 +24,7 @@ class Correlative_model extends CI_Model
      */
     function get_all_correlatives()
     {
-        $this->db->order_by('user_created', 'desc');
+        $this->db->order_by('id', 'desc');
         return $this->db->get('correlatives')->result_array();
     }
         
@@ -42,15 +42,15 @@ class Correlative_model extends CI_Model
      */
     function update_correlative($user_created,$params)
     {
-        $this->db->where('user_created',$user_created);
+        $this->db->where('id',$id);
         return $this->db->update('correlatives',$params);
     }
     
     /*
      * function to delete correlative
      */
-    function delete_correlative($user_created)
+    function delete_correlative($id)
     {
-        return $this->db->delete('correlatives',array('user_created'=>$user_created));
+        return $this->db->delete('correlatives',array('id'=>$id));
     }
 }

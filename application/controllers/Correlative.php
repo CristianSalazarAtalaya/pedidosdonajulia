@@ -30,7 +30,7 @@ class Correlative extends CI_Controller{
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-				'id' => $this->input->post('id'),
+                'user_created' => $this->input->post('user_created'),
 				'type' => $this->input->post('type'),
 				'code' => $this->input->post('code'),
 				'number' => $this->input->post('number'),
@@ -54,17 +54,18 @@ class Correlative extends CI_Controller{
     /*
      * Editing a correlative
      */
-    function edit($user_created)
+    function edit($id)
     {   
         // check if the correlative exists before trying to edit it
-        $data['correlative'] = $this->Correlative_model->get_correlative($user_created);
+        //$data['correlative'] = $this->Correlative_model->get_correlative($user_created);
+        $data['correlative'] = $this->Correlative_model->get_correlative($id);
         
-        if(isset($data['correlative']['user_created']))
+        if(isset($data['correlative']['id']))
         {
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'id' => $this->input->post('id'),
+					'user_created' => $this->input->post('user_created'),
 					'type' => $this->input->post('type'),
 					'code' => $this->input->post('code'),
 					'number' => $this->input->post('number'),
@@ -72,7 +73,7 @@ class Correlative extends CI_Controller{
 					'date_updated' => $this->input->post('date_updated'),
                 );
 
-                $this->Correlative_model->update_correlative($user_created,$params);            
+                $this->Correlative_model->update_correlative($id,$params);            
                 redirect('correlative/index');
             }
             else
@@ -91,14 +92,14 @@ class Correlative extends CI_Controller{
     /*
      * Deleting correlative
      */
-    function remove($user_created)
+    function remove($id)
     {
-        $correlative = $this->Correlative_model->get_correlative($user_created);
+        $correlative = $this->Correlative_model->get_correlative($id);
 
         // check if the correlative exists before trying to delete it
-        if(isset($correlative['user_created']))
+        if(isset($correlative['id']))
         {
-            $this->Correlative_model->delete_correlative($user_created);
+            $this->Correlative_model->delete_correlative($id);
             redirect('correlative/index');
         }
         else

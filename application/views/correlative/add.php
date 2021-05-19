@@ -8,12 +8,6 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="id" class="control-label">ID</label>
-						<div class="form-group">
-							<input type="text" name="id" value="<?php echo $this->input->post('id'); ?>" class="form-control" id="id" />
-						</div>
-					</div>
-					<div class="col-md-6">
 						<label for="type" class="control-label">Type</label>
 						<div class="form-group">
 							<input type="text" name="type" value="<?php echo $this->input->post('type'); ?>" class="form-control" id="type" />
