@@ -8,6 +8,8 @@ class Invoice_detail extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->helper(array('checkSession'));
+        check_isvalidated();
         $this->load->model('Invoice_detail_model');
     } 
 

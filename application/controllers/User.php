@@ -8,6 +8,8 @@ class User extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->helper(array('checkSession'));
+        
         $this->load->model('User_model');
         $this->load->helper(array('form', 'url'));
         $this->load->library(['form_validation','session']);
@@ -19,6 +21,7 @@ class User extends CI_Controller{
      */
     function index()
     {
+        check_isvalidated();
         $data['users'] = $this->User_model->get_all_users();
         
         $data['_view'] = 'user/index';
@@ -30,6 +33,7 @@ class User extends CI_Controller{
      */
     function add()
     {   
+        check_isvalidated();
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
@@ -58,6 +62,7 @@ class User extends CI_Controller{
      */
     function edit($id)
     {   
+        check_isvalidated();
         // check if the user exists before trying to edit it
         $data['user'] = $this->User_model->get_user($id);
         
@@ -94,6 +99,7 @@ class User extends CI_Controller{
      */
     function remove($id)
     {
+        check_isvalidated();
         $user = $this->User_model->get_user($id);
 
         // check if the user exists before trying to delete it
@@ -110,7 +116,7 @@ class User extends CI_Controller{
      * Login
      */
     public function login() {
-        
+            
 
         // if(isset($_POST) && count($_POST) > 0)     
         // {  
