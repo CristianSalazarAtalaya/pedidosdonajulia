@@ -9,6 +9,9 @@ class User extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library(['form_validation','session']);
+        $this->load->database();
     } 
 
     /*
@@ -76,8 +79,8 @@ class User extends CI_Controller{
                 redirect('user/index');
             }
             else
-            {				$data['all_users'] = $this->User_model->get_all_users();
-
+            {	
+                $data['all_users'] = $this->User_model->get_all_users();
                 $data['_view'] = 'user/edit';
                 $this->load->view('layouts/main',$data);
             }
@@ -101,6 +104,65 @@ class User extends CI_Controller{
         }
         else
             show_error('The user you are trying to delete does not exist.');
+    }
+
+    /*
+     * Login
+     */
+    public function login() {
+        
+
+        // if(isset($_POST) && count($_POST) > 0)     
+        // {  
+            $this->form_validation->set_rules('username', 'Username', 'required');
+
+
+            if ($this->form_validation->run() == FALSE) {
+                
+                $this->load->view('login_form');
+
+            } else {
+                $username = $this->input->post('username');
+                $password = $this->input->post('password');
+                
+                $user = $this->User_model->get_user_by_username($username);
+                
+                // $this->session->set_flashdata('login_succ', 'apssoooooooooooo'.$password.'='.$user['password'], 300);
+                // redirect(uri_string());
+
+                if($password !== $user['password']) {
+                    $this->session->set_flashdata('login_error', 'Please check your password .', 300);
+                    redirect(uri_string());
+                }
+
+                if(!$user) {
+                    $this->session->set_flashdata('login_error', 'Please check your user', 300);
+                    redirect(uri_string());
+                }
+
+                $data = array(
+                'user_id' => $user['id'],
+                'username' => $user['username'],
+                'type' => $user['type'],
+                );
+
+                $this->session->set_userdata($data);
+
+                if($user['type']==3)
+                {
+                    redirect('user/index');
+                }
+                else{
+                    echo 'Login success!'; exit;
+                }
+
+            }
+
+    }
+
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('user/login');
     }
     
 }

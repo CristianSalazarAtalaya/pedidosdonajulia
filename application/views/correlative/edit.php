@@ -24,12 +24,6 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="id" class="control-label">ID</label>
-						<div class="form-group">
-							<input type="text" name="id" value="<?php echo ($this->input->post('id') ? $this->input->post('id') : $correlative['id']); ?>" class="form-control" id="id" />
-						</div>
-					</div>
-					<div class="col-md-6">
 						<label for="type" class="control-label">Type</label>
 						<div class="form-group">
 							<input type="text" name="type" value="<?php echo ($this->input->post('type') ? $this->input->post('type') : $correlative['type']); ?>" class="form-control" id="type" />
