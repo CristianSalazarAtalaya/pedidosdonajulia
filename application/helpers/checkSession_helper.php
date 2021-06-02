@@ -3,9 +3,9 @@
 
 function check_isvalidated()
 {
-    if(!$_SESSION['username']){
-        redirect('user/login');
-    }
+    // if(!$_SESSION['username']){
+    //    //redirect('user/login');
+    // }
 }
 
 
