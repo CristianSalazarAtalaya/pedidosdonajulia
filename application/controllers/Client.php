@@ -13,7 +13,7 @@ class Client extends CI_Controller{
     function index()
     {
         $data['_view'] = 'client/index';
-        $this->load->view('layouts/main',$data);
+        $this->load->view('layouts/main_client',$data);
     }
 
     // private function check_isvalidated(){
