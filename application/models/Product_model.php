@@ -34,6 +34,13 @@ class Product_model extends CI_Model
         return $this->db->get('products')->result_array();
     }
 
+    function get_all_categories()
+    {
+        // $this->db->order_by('discount', 'desc');
+        $this->db->select('categorie');
+        $this->db->distinct();
+        return $this->db->get('products')->result_array();
+    }
         
     /*
      * function to add new product

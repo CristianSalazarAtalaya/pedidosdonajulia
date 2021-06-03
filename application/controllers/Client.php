@@ -13,6 +13,7 @@ class Client extends CI_Controller{
 
     function index()
     {
+        $data['categories'] = $this->Product_model->get_all_categories();
         $data['products'] = $this->Product_model->get_all_products_with_oferts();
         $data['_view'] = 'client/index';
         $this->load->view('layouts/main_client',$data);
