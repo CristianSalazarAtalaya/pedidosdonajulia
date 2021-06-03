@@ -4,7 +4,11 @@ $(function () {
   //$("#bfCaptchaEntry").click(myFunction);
 
   $("#mainFilterCategory").change(function () {
-    $(".filterCategory ").css("display", "none");
-    $("." + $(this).val()).css("display", "block");
+    if ($(this).val() == "Categoria") {
+      $(".filterCategory ").css("display", "block");
+    } else {
+      $(".filterCategory ").css("display", "none");
+      $("." + $(this).val()).css("display", "block");
+    }
   });
 });

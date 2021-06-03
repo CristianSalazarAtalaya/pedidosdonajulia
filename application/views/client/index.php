@@ -4,7 +4,7 @@
 
     <div class="col">
         <select id="mainFilterCategory" class="form-select form-select-lg mb-3 mainFilterCategory" aria-label=".form-select-lg example">
-            <option selected>Categoria</option>
+            <option value="Categoria" selected>Categoria</option>
             <?php foreach($categories as $p){ ?>
 
                 <option value="<?php echo $p['categorie'];?>">
