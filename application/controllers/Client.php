@@ -4,6 +4,7 @@ class Client extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Product_model');
         //$this->load->library(['session']);
         //$this->load->helper(array('checkSession'));
         //check_isvalidated();

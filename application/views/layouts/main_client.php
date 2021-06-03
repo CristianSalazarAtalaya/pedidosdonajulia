@@ -64,7 +64,7 @@
 
         <?php
             
-            $this->load->view('client/carrousel');
+            // $this->load->view('client/carrousel');
 
         ?>     
 

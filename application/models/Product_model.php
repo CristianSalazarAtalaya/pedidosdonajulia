@@ -30,7 +30,7 @@ class Product_model extends CI_Model
      */
     function get_all_products_with_oferts()
     {
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('discount', 'desc');
         return $this->db->get('products')->result_array();
     }
 
