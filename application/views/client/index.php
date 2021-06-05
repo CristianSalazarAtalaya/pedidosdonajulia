@@ -38,21 +38,6 @@
             </div>
         </div>
 
-        <div class="col filterCategory <?php echo $p['categorie']; ?>">
-            <div class="card">
-                <img src="<?php echo site_url('resources/img/platillos/'.$p['img']);?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"> <?php echo $p['names'];  ?></h5>
-                    <h6 class="card-title"> <?php echo '<small class="text-muted"> <strike>S/.'.$p['price'].'</strike></small> '
-                    .'<strong class="text-danger"> S/.'.($p['price']-$p['discount']).'</strong>';  ?></h6>
-                    <p class="card-text">   <?php echo $p['description']; ?></p>
-                </div>
-                <div class="card-footer text-end">
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                    <a href="#" class="btn btn-primary">Agregar</a>
-                </div>
-            </div>
-        </div>
 
     <?php } ?>
 

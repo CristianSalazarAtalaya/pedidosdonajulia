@@ -56,6 +56,12 @@
 						</div>
 					</div>
 					<div class="col-md-6">
+						<label for="img" class="control-label">Imagen</label>
+						<div class="form-group">
+							<input type="text" name="img" value="<?php echo $this->input->post('img'); ?>" class="form-control" id="img" />
+						</div>
+					</div>
+					<div class="col-md-6">
 						<label for="enabled" class="control-label">Enabled</label>
 						<div class="form-group">
 							<input type="text" name="enabled" value="<?php echo $this->input->post('enabled'); ?>" class="form-control" id="enabled" />
