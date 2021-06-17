@@ -1,31 +1,31 @@
-#from unittest import TestCase, result
-#from .utils import classes
-
-
-
-# class TestResponse(TestCase):
-    
-#     def test_ok(self):
-#         result =
-
 import pytest
+import requests
+import json
 
-@pytest.fixture
-def numbers():
-    a = 10
-    b=20
-    c =25
-    return[a,b,c]
+main_url = "http://localhost/pedidosdonajulia"
+user = "admin"
+password = "123"
+
+ 
+def test_status_admin_index():
+    url = main_url + "/"
+    data = {}
+    response = requests.get(url,data=data)
+    assert response.status_code == 200
+
+def test_status_user_index():
+    url = main_url + "/client"
+    data = {}
+    response = requests.get(url,data=data)
+    assert response.status_code == 200
+
+def test_status_user_admin_login():
+    url = main_url + "/user/login"
+    data = { 'username' : user, 'password' : password}
+    response = requests.post(url,data=data)
+    respuesta = 1
+    if "Please check your password" in response.text:
+        respuesta = 0
+    assert respuesta == 1
 
 
-def test_method(numbers):
-    x= 15
-    assert numbers[0] == X
-
-def test_method2(numbers):
-    y = 20
-    assert numbers[1] == y
-
-def test_method2(numbers):
-    z = 25
-    assert numbers[2] == z
