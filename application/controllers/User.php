@@ -156,7 +156,7 @@ class User extends CI_Controller{
                     redirect('user/index');
                 }
                 else{
-                    echo 'Login success!'; exit;
+                    redirect('client');
                 }
 
             }

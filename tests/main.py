@@ -3,9 +3,10 @@ import requests
 import json
 
 main_url = "http://localhost/pedidosdonajulia"
-user = "admin"
-password = "123"
-
+admin_user = "admin"
+admin_password = "123"
+user_user = "user"
+user_password = "123"
  
  #Paginas principales
 def test_status_admin_index():
@@ -23,15 +24,27 @@ def test_status_user_index():
 #Login
 def test_status_admin_login():
     url = main_url + "/user/login"
-    data = { 'username' : user, 'password' : password}
+    data = { 'username' : admin_user, 'password' : admin_password}
     print('*****SETUP*****')
     response = requests.post(url,data=data)
     print('Despues del response')
-    respuesta = 1
-    if "Please check your password" in response.text:
-        respuesta = 0
+    respuesta = 0
+    if "Pedidos Dona Julia | Admin" in response.text:
+        respuesta = 1
     print('Terminando la validación')
-    assert respuesta == 1
+    assert respuesta == 1 and response.status_code == 200
+
+def test_status_user_login():
+    url = main_url + "/user/login"
+    data = { 'username' : user_user, 'password' : user_password}
+    print('*****SETUP*****')
+    response = requests.post(url,data=data)
+    print('Despues del response')
+    respuesta = 0
+    if "Pedidos Dona Julia | Cliente" in response.text:
+        respuesta = 1
+    print('Terminando la validación')
+    assert respuesta == 1 and response.status_code == 200
 
 #Correlative
 def test_status_admin_correlative_index():
