@@ -32,6 +32,7 @@ def test_status_admin_login():
     if "Pedidos Dona Julia | Admin" in response.text:
         respuesta = 1
     print('Terminando la validación')
+    
     assert respuesta == 1 and response.status_code == 200
 
 def test_status_user_login():
@@ -51,7 +52,19 @@ def test_status_admin_correlative_index():
     url = main_url + "/correlative/index"
     data = {}
     response = requests.get(url,data=data)
-    assert response.status_code == 200
+    print('*****SETUP*****')
+    list_columns = ['ID','User Created','Type','Code','Number','Date Created','Date Updated','Actions']
+    num_elementos = len(list_columns)
+    contador=0
+    for x in list_columns:
+        print('buscar' + x)
+        if x in response.text:
+            print('true')
+            contador = contador + 1
+        else:
+            print('false')
+
+    assert response.status_code == 200 and num_elementos==contador
 
 def test_status_admin_correlative_edit():
     url = main_url + "/correlative/edit/2"
@@ -64,7 +77,18 @@ def test_status_admin_direction_index():
     url = main_url + "/direction/index"
     data = {}
     response = requests.get(url,data=data)
-    assert response.status_code == 200
+    print('*****SETUP*****')
+    list_columns = ['ID','Id User','Department','Province','District','Direction','Reference Dir','Date Created','Date Updated','Actions']
+    num_elementos = len(list_columns)
+    contador=0
+    for x in list_columns:
+        print('buscar' + x)
+        if x in response.text:
+            print('true')
+            contador = contador + 1
+        else:
+            print('false')
+    assert response.status_code == 200 and num_elementos==contador
 
 def test_status_admin_direction_edit():
     url = main_url + "/direction/edit/1"
@@ -112,8 +136,16 @@ def test_status_admin_user_index():
     response = requests.get(url,data=data)
     assert response.status_code == 200
 
+def test_status_admin_variable_add():
+    url = main_url + "/user/add"
+    data = {'password':'123', 'username':'admin4', 'email': 'hola@hola.com','type':1 ,'user_created': 1}
+    response = requests.post(url,data=data)
+    assert response.status_code == 200
+
+#Variables
 def test_status_admin_variable_edit():
-    url = main_url + "/variable/edit/2"
+    url = main_url + "/variable/edit/1"
     data = {}
     response = requests.get(url,data=data)
     assert response.status_code == 200
+
