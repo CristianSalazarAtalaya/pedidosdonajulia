@@ -6,7 +6,8 @@ class User extends CI_Controller{
     {
         parent::__construct();
 
-        $this->load->library('session');
+        
+        $this->load->library(['session']);
         $this->load->helper(array('checkSession'));
         $this->load->model('User_model');
         $this->load->helper(array('form', 'url'));

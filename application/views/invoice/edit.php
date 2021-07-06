@@ -7,38 +7,22 @@
 			<?php echo form_open('invoice/edit/'.$invoice['id']); ?>
 			<div class="box-body">
 				<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="id_user" class="control-label">User</label>
-						<div class="form-group">
-							<select name="id_user" class="form-control">
-								<option value="">select user</option>
-								<?php 
-								foreach($all_users as $user)
-								{
-									$selected = ($user['id'] == $invoice['id_user']) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$user['id'].'" '.$selected.'>'.$user['username'].'</option>';
-								} 
-								?>
-							</select>
+					<div class="col-md-6">
+						<label for="id_user" class="control-label">Id User</label>
+						<div class="form-group">
+							<input type="text" disabled name="id_user" value="<?php echo ($this->input->post('id_user') ? $this->input->post('id_user') : $invoice['id_user']); ?>" class="form-control" id="id_user" />
 						</div>
 					</div>
-					<div class="col-md-6">
-						<label for="user_created" class="control-label">User</label>
-						<div class="form-group">
-							<select name="user_created" class="form-control">
-								<option value="">select user</option>
-								<?php 
-								foreach($all_users as $user)
-								{
-									$selected = ($user['id'] == $invoice['user_created']) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$user['id'].'" '.$selected.'>'.$user['username'].'</option>';
-								} 
-								?>
-							</select>
+					<div class="col-md-6">
+						<label for="user_created" class="control-label">User Created </label>
+						<div class="form-group">
+							<input type="text" disabled name="user_created" value="<?php echo ($this->input->post('user_created') ? $this->input->post('user_created') : $invoice['user_created']); ?>" class="form-control" id="user_created" />
 						</div>
 					</div>
+
+
 					<div class="col-md-6">
 						<label for="direction" class="control-label">Direction</label>
 						<div class="form-group">

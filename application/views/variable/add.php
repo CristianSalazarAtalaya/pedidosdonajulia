@@ -7,22 +7,7 @@
             <?php echo form_open('variable/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
-					<div class="col-md-6">
-						<label for="user_created" class="control-label">User</label>
-						<div class="form-group">
-							<select name="user_created" class="form-control">
-								<option value="">select user</option>
-								<?php 
-								foreach($all_users as $user)
-								{
-									$selected = ($user['id'] == $this->input->post('user_created')) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$user['id'].'" '.$selected.'>'.$user['username'].'</option>';
-								} 
-								?>
-							</select>
-						</div>
-					</div>
 					<div class="col-md-6">
 						<label for="type" class="control-label">Type</label>
 						<div class="form-group">
