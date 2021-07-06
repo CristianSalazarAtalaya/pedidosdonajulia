@@ -30,7 +30,7 @@ class Correlative extends CI_Controller{
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-                'user_created' => $this->input->post('user_created'),
+                'user_created' => $this->session->userdata('user_id'),
 				'type' => $this->input->post('type'),
 				'code' => $this->input->post('code'),
 				'number' => $this->input->post('number'),
@@ -65,7 +65,6 @@ class Correlative extends CI_Controller{
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'user_created' => $this->input->post('user_created'),
 					'type' => $this->input->post('type'),
 					'code' => $this->input->post('code'),
 					'number' => $this->input->post('number'),

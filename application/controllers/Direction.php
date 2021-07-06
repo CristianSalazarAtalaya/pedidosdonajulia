@@ -28,7 +28,8 @@ class Direction extends CI_Controller{
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-				'id_user' => $this->input->post('id_user'),
+				'id_user' => $this->session->userdata('user_id'),
+				'user_created' => $this->session->userdata('user_id'),
 				'department' => $this->input->post('department'),
 				'province' => $this->input->post('province'),
 				'district' => $this->input->post('district'),

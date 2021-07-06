@@ -34,7 +34,7 @@ class Product extends CI_Controller{
 		if($this->form_validation->run())     
         {   
             $params = array(
-				'user_created' => $this->input->post('user_created'),
+				'user_created' => $this->session->userdata('user_id'),
 				'categorie' => $this->input->post('categorie'),
 				'names' => $this->input->post('names'),
 				'price' => $this->input->post('price'),
@@ -77,7 +77,6 @@ class Product extends CI_Controller{
 			if($this->form_validation->run())     
             {   
                 $params = array(
-					'user_created' => $this->input->post('user_created'),
 					'categorie' => $this->input->post('categorie'),
 					'names' => $this->input->post('names'),
 					'price' => $this->input->post('price'),

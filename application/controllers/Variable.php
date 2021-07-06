@@ -29,7 +29,7 @@ class Variable extends CI_Controller{
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-				'user_created' => $this->input->post('user_created'),
+				'user_created' => $this->session->userdata('user_id'),
 				'type' => $this->input->post('type'),
 				'condition_var' => $this->input->post('condition_var'),
 				'value' => $this->input->post('value'),
@@ -63,7 +63,6 @@ class Variable extends CI_Controller{
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'user_created' => $this->input->post('user_created'),
 					'type' => $this->input->post('type'),
 					'condition_var' => $this->input->post('condition_var'),
 					'value' => $this->input->post('value'),

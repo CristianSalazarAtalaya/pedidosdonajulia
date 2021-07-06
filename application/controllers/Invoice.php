@@ -6,7 +6,7 @@ class Invoice extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper(array('checkSession'));
-        check_isvalidated($this->session->userdata('type'));;
+        check_isvalidated();
         $this->load->model('Invoice_model');
     } 
 
@@ -45,8 +45,8 @@ class Invoice extends CI_Controller{
 		if($this->form_validation->run())     
         {   
             $params = array(
-				'id_user' => $this->input->post('id_user'),
-				'user_created' => $this->input->post('user_created'),
+				'id_user' => $this->session->userdata('user_id'),
+				'user_created' => $this->session->userdata('user_id'),
 				'direction' => $this->input->post('direction'),
 				'reference_dir' => $this->input->post('reference_dir'),
 				'total_price' => $this->input->post('total_price'),
@@ -100,7 +100,6 @@ class Invoice extends CI_Controller{
             {   
                 $params = array(
 					'id_user' => $this->input->post('id_user'),
-					'user_created' => $this->input->post('user_created'),
 					'direction' => $this->input->post('direction'),
 					'reference_dir' => $this->input->post('reference_dir'),
 					'total_price' => $this->input->post('total_price'),
