@@ -7,20 +7,27 @@
 			<?php echo form_open('user/edit/'.$user['id']); ?>
 			<div class="box-body">
 				<div class="row clearfix">
-					<div class="col-md-6">
+					<!-- <div class="col-md-6">
 						<label for="user_created" class="control-label">User</label>
 						<div class="form-group">
 							<select name="user_created" class="form-control">
 								<option value="">select user</option>
-								<?php 
-								foreach($all_users as $user)
-								{
-									$selected = ($user['id'] == $user['user_created']) ? ' selected="selected"' : "";
+								
+								// foreach($all_users as $userlist)
+								// {
+								// 	$selected = ($userlist['id'] == $user['user_created']) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$user['id'].'" '.$selected.'>'.$user['username'].'</option>';
-								} 
-								?>
+								// 	echo '<option value="'.$user['id'].'" '.$selected.'>'.$userlist['username'].'</option>';
+								// } 
+								
 							</select>
+						</div>
+					</div> -->
+
+					<div class="col-md-6">
+						<label for="user_created" class="control-label">Password</label>
+						<div class="form-group">
+							<input type="text" disabled name="user_created" value="<?php echo ($this->input->post('user_created') ? $this->input->post('user_created') : $all_users['username']); ?>" class="form-control" id="user_created" />
 						</div>
 					</div>
 					<div class="col-md-6">

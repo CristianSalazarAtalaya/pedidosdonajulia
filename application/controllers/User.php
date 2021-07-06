@@ -69,11 +69,17 @@ class User extends CI_Controller{
         
         if(isset($data['user']['id']))
         {
+            $hash=$this->input->post('password');
+            if(strlen($hash)<20 )
+            {
+                $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+            }
+
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'user_created' => $this->input->post('user_created'),
-					'password' => $this->input->post('password'),
+					//'user_created' => $this->input->post('user_created'),
+					'password' => $hash,
 					'username' => $this->input->post('username'),
 					'email' => $this->input->post('email'),
 					'type' => $this->input->post('type'),
@@ -86,7 +92,9 @@ class User extends CI_Controller{
             }
             else
             {	
-                $data['all_users'] = $this->User_model->get_all_users();
+                $data['all_users'] =$this->User_model->get_user($data['user']['user_created']);
+                // $this->User_model->get_all_users();
+                //$data['password']
                 $data['_view'] = 'user/edit';
                 $this->load->view('layouts/main',$data);
             }
