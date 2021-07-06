@@ -7,7 +7,7 @@ class Client extends CI_Controller{
         $this->load->model('Product_model');
         //$this->load->library(['session']);
         //$this->load->helper(array('checkSession'));
-        //check_isvalidated();
+        //check_isvalidated($this->session->userdata('type'));;
         
     }
 
@@ -19,7 +19,7 @@ class Client extends CI_Controller{
         $this->load->view('layouts/main_client',$data);
     }
 
-    // private function check_isvalidated(){
+    // private function check_isvalidated($this->session->userdata('type'));{
     //     if(!$_SESSION['username']){
     //         redirect('user/login');
     //     }

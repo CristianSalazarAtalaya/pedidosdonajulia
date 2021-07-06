@@ -5,8 +5,9 @@ class User extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+
+        $this->load->library('session');
         $this->load->helper(array('checkSession'));
-        
         $this->load->model('User_model');
         $this->load->helper(array('form', 'url'));
         $this->load->library(['form_validation','session']);
@@ -18,7 +19,7 @@ class User extends CI_Controller{
      */
     function index()
     {
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));;
         $data['users'] = $this->User_model->get_all_users();
         
         $data['_view'] = 'user/index';
@@ -30,12 +31,15 @@ class User extends CI_Controller{
      */
     function add()
     {   
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));
+
         if(isset($_POST) && count($_POST) > 0)     
         {   
+            $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+
             $params = array(
 				'user_created' => $this->input->post('user_created'),
-				'password' => $this->input->post('password'),
+				'password' => $hash,
 				'username' => $this->input->post('username'),
 				'email' => $this->input->post('email'),
 				'type' => $this->input->post('type'),
@@ -59,7 +63,7 @@ class User extends CI_Controller{
      */
     function edit($id)
     {   
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));;
         // check if the user exists before trying to edit it
         $data['user'] = $this->User_model->get_user($id);
         
@@ -96,7 +100,7 @@ class User extends CI_Controller{
      */
     function remove($id)
     {
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));;
         $user = $this->User_model->get_user($id);
 
         // check if the user exists before trying to delete it
@@ -130,10 +134,11 @@ class User extends CI_Controller{
                 
                 $user = $this->User_model->get_user_by_username($username);
                 
-                // $this->session->set_flashdata('login_succ', 'apssoooooooooooo'.$password.'='.$user['password'], 300);
-                // redirect(uri_string());
+                
 
-                if($password !== $user['password']) {
+                //if($password !== $user['password']) 
+                if(!password_verify($password, $user['password']))
+                {
                     $this->session->set_flashdata('login_error', 'Please check your password .', 300);
                     redirect(uri_string());
                 }
@@ -148,7 +153,7 @@ class User extends CI_Controller{
                 'username' => $user['username'],
                 'type' => $user['type'],
                 );
-                $_SESSION['username'] = $user['username'];
+                //$_SESSION['username'] = $user['username'];
                 $this->session->set_userdata($data);
 
                 if($user['type']==3)

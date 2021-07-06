@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller{
         parent::__construct();
         $this->load->library(['session']);
         $this->load->helper(array('checkSession'));
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));
         
     }
 
@@ -17,7 +17,7 @@ class Dashboard extends CI_Controller{
     }
 
 
-    // private function check_isvalidated(){
+    // private function check_isvalidated($this->session->userdata('type'));{
     //     if(!$_SESSION['username']){
     //         redirect('user/login');
     //     }

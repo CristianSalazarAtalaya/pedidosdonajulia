@@ -5,7 +5,7 @@ class Direction extends CI_Controller{
     {
         parent::__construct();
         $this->load->helper(array('checkSession'));
-        check_isvalidated();
+        check_isvalidated($this->session->userdata('type'));;
         $this->load->model('Direction_model');
     } 
 
