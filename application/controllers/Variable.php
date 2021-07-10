@@ -34,6 +34,7 @@ class Variable extends CI_Controller{
 				'type' => $this->input->post('type'),
 				'condition_var' => $this->input->post('condition_var'),
 				'value' => $this->input->post('value'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -67,6 +68,7 @@ class Variable extends CI_Controller{
 					'type' => $this->input->post('type'),
 					'condition_var' => $this->input->post('condition_var'),
 					'value' => $this->input->post('value'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );

@@ -37,6 +37,7 @@ class Invoice_detail extends CI_Controller{
 				'price' => $this->input->post('price'),
 				'discount' => $this->input->post('discount'),
 				'final_price' => $this->input->post('final_price'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -77,6 +78,7 @@ class Invoice_detail extends CI_Controller{
 					'price' => $this->input->post('price'),
 					'discount' => $this->input->post('discount'),
 					'final_price' => $this->input->post('final_price'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );

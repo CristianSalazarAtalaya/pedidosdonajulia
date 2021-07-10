@@ -46,6 +46,7 @@ class Person extends CI_Controller{
 				'sex' => $this->input->post('sex'),
 				'dni' => $this->input->post('dni'),
 				'ruc' => $this->input->post('ruc'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -92,6 +93,7 @@ class Person extends CI_Controller{
 					'sex' => $this->input->post('sex'),
 					'dni' => $this->input->post('dni'),
 					'ruc' => $this->input->post('ruc'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );

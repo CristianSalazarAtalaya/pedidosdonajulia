@@ -61,6 +61,7 @@ class Invoice extends CI_Controller{
 				'num_doc' => $this->input->post('num_doc'),
 				'cod_fac' => $this->input->post('cod_fac'),
 				'num_fac' => $this->input->post('num_fac'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -114,6 +115,7 @@ class Invoice extends CI_Controller{
 					'num_doc' => $this->input->post('num_doc'),
 					'cod_fac' => $this->input->post('cod_fac'),
 					'num_fac' => $this->input->post('num_fac'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );

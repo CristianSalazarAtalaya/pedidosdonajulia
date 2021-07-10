@@ -35,6 +35,7 @@ class Correlative extends CI_Controller{
 				'type' => $this->input->post('type'),
 				'code' => $this->input->post('code'),
 				'number' => $this->input->post('number'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -69,6 +70,7 @@ class Correlative extends CI_Controller{
 					'type' => $this->input->post('type'),
 					'code' => $this->input->post('code'),
 					'number' => $this->input->post('number'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );

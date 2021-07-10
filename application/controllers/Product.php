@@ -45,6 +45,7 @@ class Product extends CI_Controller{
 				//'date_created' => $this->input->post('date_created'),
 				//'date_update' => $this->input->post('date_update'),
 				'description' => $this->input->post('description'),
+                'date_updated' => date('Y-m-d H:i:s')
             );
             
             $product_id = $this->Product_model->add_product($params);
@@ -87,6 +88,7 @@ class Product extends CI_Controller{
 					//'date_created' => $this->input->post('date_created'),
 					//'date_update' => $this->input->post('date_update'),
 					'description' => $this->input->post('description'),
+                    'date_updated' => date('Y-m-d H:i:s')
                 );
 
                 $this->Product_model->update_product($id,$params);            

@@ -1,6 +1,7 @@
 <?php
 
- 
+
+
 class User extends CI_Controller{
     function __construct()
     {
@@ -45,6 +46,7 @@ class User extends CI_Controller{
 				'username' => $this->input->post('username'),
 				'email' => $this->input->post('email'),
 				'type' => $this->input->post('type'),
+                'date_updated' => date('Y-m-d H:i:s')
 				//'date_created' => $this->input->post('date_created'),
 				//'date_updated' => $this->input->post('date_updated'),
             );
@@ -72,7 +74,7 @@ class User extends CI_Controller{
         if(isset($data['user']['id']))
         {
             $hash=$this->input->post('password');
-            if(strlen($hash)<20 )
+            if(strlen($hash)<20)
             {
                 $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
             }
@@ -85,6 +87,7 @@ class User extends CI_Controller{
 					'username' => $this->input->post('username'),
 					'email' => $this->input->post('email'),
 					'type' => $this->input->post('type'),
+                    'date_updated' => date('Y-m-d H:i:s')
 					//'date_created' => $this->input->post('date_created'),
 					//'date_updated' => $this->input->post('date_updated'),
                 );
@@ -103,6 +106,19 @@ class User extends CI_Controller{
         }
         else
             show_error('The user you are trying to edit does not exist.');
+    } 
+    /*
+     * Update last login
+     */
+    private function updateLastlogin($id)
+    {   
+        
+        $params = array(
+            //'last_login_date' => date('Y-m-d H:i:s'),
+            'las_login_host' => getenv("REMOTE_ADDR")
+        );
+
+        $this->User_model->update_user($id,$params);
     } 
 
     /*
@@ -163,6 +179,14 @@ class User extends CI_Controller{
                 'username' => $user['username'],
                 'type' => $user['type'],
                 );
+                
+                $params = array(
+                    
+                    'last_login_date' => date('Y-m-d H:i:s'),
+                    'last_login_host' =>  getenv("REMOTE_ADDR")
+                );
+
+                $this->User_model->update_user($user['id'],$params);
                 //$_SESSION['username'] = $user['username'];
                 $this->session->set_userdata($data);
 
