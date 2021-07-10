@@ -24,6 +24,11 @@ class User extends CI_Controller{
         check_isvalidated($this->session->userdata('type'));;
         $data['users'] = $this->User_model->get_all_users();
         
+        //$this->session->unset_userdata('eapgak6fom8sbsp59qv3tpnrlihr0oqr');
+        //$this->session->unset_userdata('eapgak6fom8sbsp59qv3tpnrlihr0oqr');
+        //unset($_SESSION['admin']);
+        //$this->session->unset_userdata('adminasdadasd');
+        //$this->session->destroy('c8pcnho22p8rtvude2kna4ssn1u98lvf');
         $data['_view'] = 'user/index';
         $this->load->view('layouts/main',$data);
     }
@@ -174,28 +179,60 @@ class User extends CI_Controller{
                     redirect(uri_string());
                 }
 
-                $data = array(
-                'user_id' => $user['id'],
-                'username' => $user['username'],
-                'type' => $user['type'],
-                );
+
+                $dateTimeObject1 = $user['last_login_date'];
+                $dateTimeObject1 = new DateTime($user['last_login_date']);
+                $dateTimeObject2 = new DateTime(date('Y-m-d H:i:s'));
                 
-                $params = array(
-                    
-                    'last_login_date' => date('Y-m-d H:i:s'),
-                    'last_login_host' =>  getenv("REMOTE_ADDR")
-                );
+                //$datetime1->diff($datetime2);
+                $difference = date_diff($dateTimeObject1, $dateTimeObject2); 
+                //$difference = $dateTimeObject1->diff($dateTimeObject2);
+                $minutes = $difference->days * 24 * 60;
+                $minutes += $difference->h * 60;
+                $minutes += $difference->i;
+                $minutes += $difference->i;
 
-                $this->User_model->update_user($user['id'],$params);
-                //$_SESSION['username'] = $user['username'];
-                $this->session->set_userdata($data);
+                $tiempo_restante = 20 - $minutes;
 
-                if($user['type']==3)
-                {
-                    redirect('user/index');
+                if($user['last_login_sessionid'] == ''){
+                    $minutes=30;
                 }
-                else{
-                    redirect('client');
+                
+                //$diff=date_diff($user['password'],$date2)
+                if($minutes>20)
+                {
+                    $data = array(
+                    'user_id' => $user['id'],
+                    'username' => $user['username'],
+                    'type' => $user['type'],
+                    );
+                    
+                    //$_SESSION['username'] = $user['username'];
+                    $this->session->set_userdata($data);
+                    //$this->session->set_userdata($user['id']);
+                    
+
+                    $session_id_get = $this->session->session_id;
+                    $params = array(
+                        'last_login_date' => date('Y-m-d H:i:s'),
+                        'last_login_host' =>  getenv("REMOTE_ADDR"),
+                        'last_login_sessionid' => $session_id_get
+                    );
+                    
+                    
+                    $this->User_model->update_user($user['id'],$params);
+                    
+                    if($user['type']==3)
+                    {
+                        redirect('user/index');
+                    }
+                    else{
+                        redirect('client');
+                    }
+
+                }else{
+                    $this->session->set_flashdata('login_error', 'Aun se encuentra conectado, favor esperar '.$tiempo_restante.' antes de iniciar sessión', 300);
+                    redirect(uri_string());
                 }
 
             }
@@ -203,7 +240,15 @@ class User extends CI_Controller{
     }
 
     public function logout(){
+        
+        $params = array(
+            'last_login_host' =>  getenv("REMOTE_ADDR"),
+            'last_login_sessionid' => ''
+        );
+        $this->User_model->update_user($this->session->userdata('user_id'),$params);
+
         $this->session->sess_destroy();
+
         redirect('user/login');
     }
     
