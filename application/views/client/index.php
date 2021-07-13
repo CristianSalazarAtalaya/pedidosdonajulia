@@ -32,8 +32,8 @@
                     <p class="card-text">   <?php echo $p['description']; ?></p>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                    <a href="#" class="btn btn-primary">Agregar</a>
+                    <a class="btn btn-primary">Comprar</a>
+                    <a class="btn btn-primary  data-animal-type='asd' addToCar">Agregar</a>
                 </div>
             </div>
         </div>

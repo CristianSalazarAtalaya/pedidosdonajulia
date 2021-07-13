@@ -11,7 +11,9 @@
     <link href="https://getbootstrap.com/docs/5.0/examples/carousel/carousel.css" rel="stylesheet"  crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    
+
+    <link rel="stylesheet" href="<?php echo site_url('resources/css/client.css');?>">
+
     <title>Pedidos Dona Julia | Cliente!</title>
   </head>
   <body>
@@ -100,21 +102,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table caption-top">
+            <table id="#tablecompras" class="table caption-top">
                 <caption>Lista de platillos</caption>
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Platillo</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Sub Total</th>
-                    <th scope="col">Acciones</th>
+                        <th scope="col">#</th>
+                        <th scope="col">CodProduct</th>
+                        <th scope="col">Platillo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Sub Total</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
+                        <td>Mark</td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -122,24 +126,8 @@
                         <td>@mdo</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-
-                    <tr>
                         <th scope="row">4</th>
+                        <td>-</td>
                         <td>Total</td>
                         <td>-</td>
                         <td>-</td>
