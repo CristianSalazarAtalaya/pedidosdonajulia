@@ -10,7 +10,7 @@
 
     <link href="https://getbootstrap.com/docs/5.0/examples/carousel/carousel.css" rel="stylesheet"  crossorigin="anonymous">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
     <title>Pedidos Dona Julia | Cliente!</title>
   </head>
@@ -48,12 +48,26 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Hola, Cristian</a>
                             </li>
+
+                            <!-- <li class="nav-item">
+                                <i class="bi-cart" style="font-size: 2rem; color: cornflowerblue;"></i> Car
+                            </li> -->
                             
+
+
                             <li class="nav-item">
+                                <!-- <button type="button" class="btn btn-labeled btn-primary"> -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                                    <span class="btn-label"><i class="fa fa-camera"></i></span>Carito de compras
+                                </button>
+                            </li>
+
+                            <!-- <li class="nav-item">
                                 <button type="button" class="btn btn-labeled btn-primary">
                                     <span class="btn-label"><i class="fa fa-camera"></i></span>Logout
                                 </button>
-                            </li>
+                            </li> -->
                         </ul>
 
                     </div>
@@ -76,6 +90,74 @@
             ?>     
 
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mi pedido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table caption-top">
+                <caption>Lista de platillos</caption>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Platillo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Sub Total</th>
+                    <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Total</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>999</td>
+                    </tr>
+
+                </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                <button type="button" class="btn btn-primary">Comprar ahora</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
 
         <footer class="bd-footer py-5 mt-5 bg-light">
             <div class="container py-5">
