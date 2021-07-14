@@ -102,7 +102,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <table id="#tablecompras" class="table caption-top">
+            <table id="tablecompras" class="table caption-top">
                 <caption>Lista de platillos</caption>
                 <thead>
                     <tr>
@@ -115,25 +115,8 @@
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>-</td>
-                        <td>Total</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>999</td>
-                    </tr>
+                <tbody id="tablecomprasbody">
+
 
                 </tbody>
                 </table>

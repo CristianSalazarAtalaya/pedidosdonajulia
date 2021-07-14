@@ -33,7 +33,13 @@
                 </div>
                 <div class="card-footer text-end">
                     <a class="btn btn-primary">Comprar</a>
-                    <a class="btn btn-primary  data-animal-type='asd' addToCar">Agregar</a>
+                    <a class="btn btn-primary addToCar"  
+                        data-id-product="<?php echo $p['id'];?>" 
+                        data-product="<?php echo $p['names'];?>" 
+                        data-price="<?php echo ($p['price']-$p['discount']);?>" 
+                    >
+                    
+                    Agregar</a>
                 </div>
             </div>
         </div>
