@@ -95,38 +95,39 @@
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mi pedido</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <table id="tablecompras" class="table caption-top">
-                <caption>Lista de platillos</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">CodProduct</th>
-                        <th scope="col">Platillo</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Sub Total</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tablecomprasbody">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Mi pedido</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table id="tablecompras" class="table caption-top">
+                            <caption>Lista de platillos</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">CodProduct</th>
+                                    <th scope="col">Platillo</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Sub Total</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablecomprasbody">
+                            
 
-
-                </tbody>
-                </table>
+                            </tbody>
+                            </table>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                        <button id="limpiarcarrito" type="button" class="btn btn-secondary" >Limpiar</button>
+                        <button id="realizarcompra" type="button" class="btn btn-primary">Comprar ahora</button>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
-                <button type="button" class="btn btn-primary">Comprar ahora</button>
-            </div>
-            </div>
-        </div>
         </div>
 
 

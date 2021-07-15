@@ -9,10 +9,10 @@ table {
   width: 100%;
 }
 
-tr th:nth-child(2) {
+#tablecompras tr th:nth-child(2) {
   display: none;
 }
 
-tr td:nth-child(2) {
+#tablecompras tr td:nth-child(2) {
   display: none;
 }
