@@ -136,6 +136,52 @@ $(document).ready(function () {
     document.getElementById("tablecomprasbody").innerHTML = "";
   });
   $("#realizarcompra").click(function () {
-    console.log(listProducts);
+    jsonData = '{ "data" : ' + JSON.stringify(listProducts) + "}";
+    //jsonData = '{ "data" : ' + JSON.stringify(listProducts) + "}";
+    //jsonData = JSON.stringify(listProducts);
+    const obj = JSON.parse(jsonData);
+    console.log(obj);
+    //console.log(json);
+    // $.ajax({
+    //   type: "POST",
+    //   url: url,
+    //   data: jsonData,
+    //   success: function () {
+    //     alert("asdad mrdd");
+    //   },
+    //   dataType: dataType,
+    // });
+
+    // var jqxhr = $.post("example.php", function () {
+    //   alert("success");
+    // })
+    //data.append("params", jsonData);
+    console.log(jsonData);
+    var jqxhr = $.post(
+      "http://localhost/pedidosdonajulia/client/doBuyFromCar",
+      obj
+    )
+      .done(function (data) {
+        alert("Su código de pedido es: " + data);
+      })
+      .fail(function (data) {
+        alert("error" + data);
+      })
+      .always(function () {
+        alert("finished");
+      });
+
+    // $.ajax({
+    //   type: "POST",
+    //   url: "http://localhost/pedidosdonajulia/client/doBuyFromCar",
+    //   dataType: "json",
+    //   data: obj,
+    //   success: function (data) {
+    //     alert(data);
+    //   },
+    //   error: function (data) {
+    //     alert("error!!" + data);
+    //   },
+    // });
   });
 });

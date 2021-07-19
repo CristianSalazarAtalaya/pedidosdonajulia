@@ -101,7 +101,14 @@
                         <h5 class="modal-title" id="exampleModalLabel">Mi pedido</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div id="modalCarBody" class="modal-body">
+                        <div class="col">
+                            <select id="TipoDePagoCar" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option value="Efectivo" selected>Efectivo</option>
+                                <option value="Tarjeta" >Tarjeta</option>
+                                <option value="PayPal"  >Pay Pal</option>
+                            </select>
+                        </div>
                         <table id="tablecompras" class="table caption-top">
                             <caption>Lista de platillos</caption>
                             <thead>
@@ -120,7 +127,7 @@
 
                             </tbody>
                             </table>
-                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
                         <button id="limpiarcarrito" type="button" class="btn btn-secondary" >Limpiar</button>

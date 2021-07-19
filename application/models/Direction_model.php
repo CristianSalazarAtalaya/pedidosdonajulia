@@ -24,6 +24,11 @@ class Direction_model extends CI_Model
         $this->db->order_by('id', 'desc');
         return $this->db->get('directions')->result_array();
     }
+
+    function get_directions_by_userid($id)
+    {
+        return $this->db->get_where('directions',array('id_user'=>$id))->row_array();
+    }
         
     /*
      * function to add new direction

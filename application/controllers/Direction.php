@@ -8,6 +8,7 @@ class Direction extends CI_Controller{
         $this->load->helper(array('checkSession'));
         check_isvalidated($this->session->userdata('type'));;
         $this->load->model('Direction_model');
+        $this->load->model('User_model');
     } 
 
     /*
@@ -16,7 +17,7 @@ class Direction extends CI_Controller{
     function index()
     {
         $data['directions'] = $this->Direction_model->get_all_directions();
-        
+        $data['all_users'] = $this->User_model->get_all_users();
         $data['_view'] = 'direction/index';
         $this->load->view('layouts/main',$data);
     }
@@ -29,8 +30,7 @@ class Direction extends CI_Controller{
         if(isset($_POST) && count($_POST) > 0)     
         {   
             $params = array(
-				'id_user' => $this->session->userdata('user_id'),
-				'user_created' => $this->session->userdata('user_id'),
+				'id_user' => $this->input->post('id_user'),// $this->session->userdata('user_id'),
 				'department' => $this->input->post('department'),
 				'province' => $this->input->post('province'),
 				'district' => $this->input->post('district'),
@@ -67,7 +67,7 @@ class Direction extends CI_Controller{
             if(isset($_POST) && count($_POST) > 0)     
             {   
                 $params = array(
-					'id_user' => $this->input->post('id_user'),
+					//'id_user' => $this->input->post('id_user'),
 					'department' => $this->input->post('department'),
 					'province' => $this->input->post('province'),
 					'district' => $this->input->post('district'),

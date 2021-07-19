@@ -8,6 +8,23 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
+						<label for="id_user" class="control-label">User</label>
+						<div class="form-group">
+							<select name="id_user" class="form-control">
+								<option value="">select user</option>
+								<?php
+								foreach($all_users as $user)
+								 {
+								 	$selected = ($user['id'] == $this->input->post('id_user')) ? ' selected="selected"' : "";
+
+								 	echo '<option value="'.$user['id'].'" '.$selected.'>'.$user['username'].'</option>';
+								 } 
+								?>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-md-6">
 						<label for="department" class="control-label">Department</label>
 						<div class="form-group">
 							<input type="text" name="department" value="<?php echo $this->input->post('department'); ?>" class="form-control" id="department" />

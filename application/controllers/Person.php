@@ -38,7 +38,7 @@ class Person extends CI_Controller{
 		if($this->form_validation->run())     
         {   
             $params = array(
-				'id_user' => $this->session->userdata('user_id'),
+				'id_user' => $this->input->post('id_user'),
 				'user_created' => $this->session->userdata('user_id'),
 				'names' => $this->input->post('names'),
 				'surnames' => $this->input->post('surnames'),

@@ -15,6 +15,11 @@ class Person_model extends CI_Model
     {
         return $this->db->get_where('people',array('id'=>$id))->row_array();
     }
+
+    function get_person_by_userid($id)
+    {
+        return $this->db->get_where('people',array('id_user'=>$id))->row_array();
+    }
         
     /*
      * Get all people
