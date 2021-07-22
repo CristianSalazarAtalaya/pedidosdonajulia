@@ -12,7 +12,6 @@
                     <tr>
 						<th>ID</th>
 						<th>Id User</th>
-						<th>User Created</th>
 						<th>Direction</th>
 						<th>Reference Dir</th>
 						<th>Total Price</th>
@@ -34,7 +33,6 @@
                     <tr>
 						<td><?php echo $i['id']; ?></td>
 						<td><?php echo $i['id_user']; ?></td>
-						<td><?php echo $i['user_created']; ?></td>
 						<td><?php echo $i['direction']; ?></td>
 						<td><?php echo $i['reference_dir']; ?></td>
 						<td><?php echo $i['total_price']; ?></td>

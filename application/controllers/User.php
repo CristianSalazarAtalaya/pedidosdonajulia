@@ -157,6 +157,14 @@ class User extends CI_Controller{
 
             if ($this->form_validation->run() == FALSE) {
                 
+                $params = array(
+                    'last_login_host' =>  getenv("REMOTE_ADDR"),
+                    'last_login_sessionid' => ''
+                );
+                $this->User_model->update_user($this->session->userdata('user_id'),$params);
+
+                $this->session->sess_destroy();
+
                 $this->load->view('login_form');
 
             } else {

@@ -9,6 +9,7 @@ class Client extends CI_Controller{
         $this->load->model('Person_model');
         $this->load->model('Invoice_model');
         $this->load->model('Invoice_detail_model');
+        $this->load->model('Variable_model');
         
         $this->load->model('User_model');
         $this->load->library(['session']);
@@ -23,6 +24,62 @@ class Client extends CI_Controller{
         $data['products'] = $this->Product_model->get_all_products_with_oferts();
         $data['_view'] = 'client/index';
         $this->load->view('layouts/main_client',$data);
+    }
+
+    function register()
+    {
+        if(isset($_POST) && count($_POST) > 0)   
+        {
+
+            $hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
+
+            $params = array(
+				'user_created' => 1,
+				'password' => $hash,
+				'username' => $this->input->post('username'),
+				'email' => $this->input->post('email'),
+				'type' => 1,
+                'date_updated' => date('Y-m-d H:i:s')
+            );
+            
+            $user_id = $this->User_model->add_user($params);
+
+            $params = array(
+				'id_user' => $user_id,
+				'user_created' => $user_id,
+				'names' => $this->input->post('names'),
+				'surnames' => $this->input->post('surnames'),
+				'age' => $this->input->post('age'),
+				'sex' => $this->input->post('sex'),
+				'dni' => $this->input->post('dni'),
+				'ruc' => $this->input->post('ruc'),
+                'date_updated' => date('Y-m-d H:i:s')
+            );
+            $person_id = $this->Person_model->add_person($params);
+
+            $params = array(
+				'id_user' => $user_id,
+				'department' => $this->input->post('department'),
+				'province' => $this->input->post('province'),
+				'district' => $this->input->post('district'),
+				'direction' => $this->input->post('direction'),
+				'reference_dir' => $this->input->post('reference_dir'),
+                'date_updated' => date('Y-m-d H:i:s')
+            );
+            
+            $direction_id = $this->Direction_model->add_direction($params);
+
+
+            $this->session->set_flashdata('registeruser', 'Se registro!!', 300);
+            redirect(uri_string());
+        }  
+        else
+        {   
+            // $data['categories'] = $this->Product_model->get_all_categories();
+            $data['all_variables'] = $this->Variable_model->get_all_variables();
+            $data['_view'] = 'client/register';
+            $this->load->view('layouts/main_client',$data);
+        }
     }
 
     function doBuyFromCar()
@@ -106,7 +163,7 @@ class Client extends CI_Controller{
 
         }
         else{
-            echo "mrd!!";
+            echo "NOT TODAY";
         }
         
     }

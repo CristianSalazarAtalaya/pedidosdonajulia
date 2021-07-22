@@ -15,7 +15,14 @@ class Variable_model extends CI_Model
     {
         return $this->db->get_where('variables',array('id'=>$id))->row_array();
     }
-        
+    
+    function get_variable_by_typeandcond($type, $cond="")
+    {
+        //return $this->db->get_where('variables',array('id'=>$id))->row_array();
+        //$this->db->order_by('id', 'desc');
+        return $this->db->get_where('variables',array('type'=>$type, 'condition_var'=>$cond ))->result_array();
+    }
+
     /*
      * Get all variables
      */
