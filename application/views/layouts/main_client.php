@@ -25,7 +25,7 @@
                     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Logo</a>
+                    <a class="navbar-brand"href="<?php echo site_url('client');?>">Logo</a>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
@@ -51,25 +51,18 @@
                                 <a class="nav-link" href="#">Hola, Cristian</a>
                             </li>
 
-                            <!-- <li class="nav-item">
-                                <i class="bi-cart" style="font-size: 2rem; color: cornflowerblue;"></i> Car
-                            </li> -->
-                            
-
-
                             <li class="nav-item">
                                 <!-- <button type="button" class="btn btn-labeled btn-primary"> -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
                                     <span class="btn-label"><i class="fa fa-camera"></i></span>Carito de compras
                                 </button>
+                                
                             </li>
-
-                            <!-- <li class="nav-item">
-                                <button type="button" class="btn btn-labeled btn-primary">
-                                    <span class="btn-label"><i class="fa fa-camera"></i></span>Logout
-                                </button>
-                            </li> -->
+                               
+                            <li class="nav-item">
+                                 <a href="<?php echo site_url('user/logout');?>" class="btn btn-danger">Sign out</a>  
+                            </li>
                         </ul>
 
                     </div>

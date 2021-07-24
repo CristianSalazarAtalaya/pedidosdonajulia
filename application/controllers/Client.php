@@ -20,6 +20,7 @@ class Client extends CI_Controller{
 
     function index()
     {
+        //check_isvalidated($this->session->userdata('type'));;
         $data['categories'] = $this->Product_model->get_all_categories();
         $data['products'] = $this->Product_model->get_all_products_with_oferts();
         $data['_view'] = 'client/index';
@@ -71,7 +72,27 @@ class Client extends CI_Controller{
 
 
             $this->session->set_flashdata('registeruser', 'Se registro!!', 300);
-            redirect(uri_string());
+            
+            $data = array(
+                    'user_id' => $user_id,
+                    'username' => $this->input->post('username'),
+                    'type' => 1,
+            );
+            
+            $this->session->set_userdata($data);
+                    
+
+            $session_id_get = $this->session->session_id;
+            $params = array(
+                'last_login_date' => date('Y-m-d H:i:s'),
+                'last_login_host' =>  getenv("REMOTE_ADDR"),
+                'last_login_sessionid' => $session_id_get
+            );
+                    
+                    
+            $this->User_model->update_user($user['id'],$params);
+            
+            redirect('client');
         }  
         else
         {   

@@ -31,6 +31,9 @@
                 <?php echo form_error('password'); ?>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
+            <p class="form-group">
+                <a href="<?php echo site_url('client/register');?>">  Registrate</a>
+            </p>
             <?php echo $this->session->flashdata('login_error'); ?>
             
             <?php echo $this->session->flashdata('login_succ'); ?>
